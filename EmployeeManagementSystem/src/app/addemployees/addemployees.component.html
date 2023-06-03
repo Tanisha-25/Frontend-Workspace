@@ -1,0 +1,33 @@
+<div>
+    <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" formControlName="name" />
+            <div *ngIf="employeeForm.get('name')?.invalid && employeeForm.get('name')?.touched" class="error">
+                Name is required
+            </div>
+        </div>
+        <div>
+            <label for="location">Location:</label>
+            <select id="location" formControlName="location">
+                <option value="Banglore">Banglore</option>
+                <option value="Patna">Patna</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Mumbai">Mumbai</option>
+            </select>
+            <div *ngIf="employeeForm.get('location')?.invalid && employeeForm.get('location')?.touched" class="error">
+                Location is required
+            </div>
+        </div>
+       <div>
+        <label for="email">Email:</label>
+        <input type="text" id="email" formControlName="email" />
+        <div *ngIf="employeeForm.get('email')?.invalid && employeeForm.get('email')?.touched" class="error">
+            Email is required
+       </div>
+       </div><br>
+       <div>
+        <button class="button disabled" type="submit" (click)="goBack()" [disabled]="employeeForm.invalid">Add</button>
+       </div>
+</form>
+</div>

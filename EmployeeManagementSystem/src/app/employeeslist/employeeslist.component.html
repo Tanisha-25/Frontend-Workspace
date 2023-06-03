@@ -1,0 +1,28 @@
+<h3>
+    Total Number of Employees: {{employees | filter : searchLetter | total}}
+</h3>
+<h5>
+    Filter By:
+    <input type='text' [(ngModel)]="searchLetter" placeholder="Enter a letter">
+</h5>
+<br>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Email</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tr *ngFor="let e of employees| filter:searchLetter">
+        <td><a [routerLink]="[e.id]">{{e.id}}</a></td>
+        <td>{{e.name}}</td>
+        <td>{{e.location}}</td>
+        <td>{{e.email}}</td>
+        <td><button> <a routerLink="/editemployees" (click)="setEmp(e)">Edit{{e.id}}</a></button></td>
+        <td><button type="submit" (click) ="deleteEmployee(e.id)">Delete</button></td>
+    </tr>
+</table>

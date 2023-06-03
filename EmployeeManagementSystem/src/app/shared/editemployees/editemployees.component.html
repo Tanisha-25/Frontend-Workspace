@@ -1,0 +1,60 @@
+<!-- <div>
+    <h3> Edit Form</h3>
+    <form *ngIf="data" #register="ngForm" (ngSubmit)="updateEmployee()">
+        <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" [(ngModel)]="data.name" name="name" #name="ngModel" required>
+        </div>
+        <div>
+            <label for="location">Location:</label>
+            <input type="text" id="location" [(ngModel)]="data.location" name="location" #location="ngModel" required>
+        </div>
+        <div>
+                <label for="name">Email:</label>
+                <input type="text" id="email" [(ngModel)]="data.email" name="email" #email="ngModel" required [pattern]="emailRegex">
+        </div>
+        <div>
+            <button type="submit" [disabled]="register.invalid">Update</button>
+        </div>
+    </form>
+</div> -->
+
+<div class="container">
+    <h3> Edit Form</h3>
+    <form *ngIf="data" #register="ngForm" (ngSubmit)="updateEmployee()">
+    <div class="row">
+      <div class="col-25">
+        <label for="name">Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="name" [(ngModel)]="data.name" name="name" #name="ngModel" required placeholder="Your name..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="location">Location</label>
+      </div>
+      <div class="col-75">
+        <select id="location" [(ngModel)]="data.location" name="location" #location="ngModel" required>
+          <option value="patna">Patna</option>
+          <option value="delhi">Delhi</option>
+          <option value="mumbai">Mumbai</option>
+          <option value="pune">Pune</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="email">Email</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="email" [(ngModel)]="data.email" name="email" #email="ngModel" required [pattern]="emailRegex" placeholder="Your Email..">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+        <button type="submit" [disabled]="register.invalid">Update</button>
+    </div>
+    </form>
+  </div>
+
